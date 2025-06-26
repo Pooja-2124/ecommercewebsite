@@ -25,10 +25,9 @@ a {
 }
 
 nav {
-    height: auto;
     width: 100%;
     background-color: #575555;
-    color: rgb(255, 255, 255);
+    color: white;
     position: fixed;
     top: 0;
     z-index: 100;
@@ -40,7 +39,7 @@ nav ul {
     text-align: center;
 }
 
-nav li {
+nav ul.headerelement li {
     display: block;
 }
 
@@ -51,8 +50,11 @@ nav a {
     text-decoration: none;
 }
 
-nav li :hover {
+nav a:hover,
+nav a:focus,
+nav a:active {
     background-color: #8a8989;
+    outline: none;
 }
 
 #showcase .section-main {
@@ -69,20 +71,17 @@ nav li :hover {
 #showcase h1 {
     font-size: 4rem;
     margin-bottom: 0.5rem;
-    color: black;
 }
 
 #showcase h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: black;
 }
 
 .lead {
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto;
-    color: black;
 }
 
 .container {
@@ -144,11 +143,7 @@ button:hover {
 }
 
 #newarrivals .product-grid {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
     margin: 0 auto;
     max-width: 1200px;
 }
@@ -239,19 +234,17 @@ footer .footer-bottom {
 
 /* Responsive Adjustments */
 @media (min-width: 769px) {
-    nav {
-        height: 40px;
-    }
-
-    nav li {
+    nav ul.headerelement li {
         display: inline-block;
+        margin-right: 10px;
     }
 
     nav a {
         display: inline-block;
         width: auto;
     }
-    header{
+
+    header {
         margin-bottom: 100px;
     }
 }
@@ -279,15 +272,15 @@ footer .footer-bottom {
 }
 
 @media (max-width: 480px) {
-    header{
+    header {
         margin-bottom: 100px;
     }
-    #newarrivals .product-grid {
+
+    #newarrivals .product-grid,
+    #shop .product-grid {
         grid-template-columns: 1fr;
     }
-    #shop .product-grid{
-        grid-template-columns: 1fr;
-    }
+
     footer .footer-cols {
         grid-template-columns: 1fr;
     }
@@ -298,62 +291,32 @@ footer .footer-bottom {
 
     #showcase h2 {
         font-size: 1.5rem;
-        margin-bottom: 5px;
-        margin-top: 5px;
     }
-    #showcase .section-main .lead{
-        margin-top: 5px;
+
+    #showcase .section-main .lead {
         font-size: 12px;
+        margin-top: 5px;
     }
-    /* .lead {
-        font-size: 1rem;
-        display: none;
-    } */
 
     #showcase .section-main {
         padding: 0 10px;
     }
 }
 
-@media (max-width: 390px){
-    header{
-        margin-bottom: 100px;
-    }
-    #newarrivals .product-grid {
-        grid-template-columns: 1fr;
-    }
-    #shop .product-grid{
-        grid-template-columns: 1fr;
-    }
-    footer .footer-cols {
-        grid-template-columns: 1fr;
+@media (max-width: 390px) {
+    #showcase .section-main h1 {
+        font-size: 2rem;
     }
 
-    #showcase h1 {
-        font-size: 2.3rem;
-    }
-
-    #showcase h2 {
+    #showcase .section-main h2 {
         font-size: 1.5rem;
-        margin-bottom: 5px;
-        margin-top: 5px;
     }
-    #showcase .section-main h1{
-        font-size: 2.0rem;
-    }
-    #showcase .section-main .lead{
-        margin-top: 5px;
+
+    .lead {
         font-size: 12px;
     }
-    /* .lead {
-        font-size: 1rem;
-        display: none;
-    } */
-
-    #showcase .section-main {
-        padding: 0 10px;
-    }
 }
+
 @media (max-width: 344px) {
     #showcase .section-main h1 {
         font-size: 1.6rem;
@@ -379,10 +342,9 @@ footer .footer-bottom {
     footer .footer-cols {
         grid-template-columns: 1fr;
     }
-    footer .footer-cols ul{
-    position: relative;
-    right:50px;
+
+    footer .footer-cols ul {
+        position: static;
+        right: auto;
     }
 }
-
-
